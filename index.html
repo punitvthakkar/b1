@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deutsch B1 Meisterkurs | Vollständig & Interaktiv</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary-olive: #8b9b7a;
+            --light-olive: #a8b899;
+            --pale-olive: #e8ede0;
+            --cream: #fafaf7;
+            --warm-white: #ffffff;
+            --dark-green: #5a6b4f;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --accent-gold: #d4af37;
+            --success: #48bb78;
+            --error: #f56565;
+            --gradient-primary: linear-gradient(135deg, var(--primary-olive) 0%, var(--light-olive) 100%);
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(to bottom, var(--cream), var(--pale-olive));
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: var(--warm-white);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-soft);
+            border-bottom: 1px solid var(--pale-olive);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav a:hover {
+            color: var(--primary-olive);
+            background: var(--pale-olive);
+        }
+
+        /* API Key Section */
+        .api-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .api-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .api-input-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .api-input {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 300px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary {
+            background: var(--accent-gold);
+            color: var(--text-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .api-status {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .welcome-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mission Cards */
+        .missions-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-card {
+            background: var(--warm-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid var(--pale-olive);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .mission-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mission-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .mission-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .mission-card.active .mission-toggle {
+            transform: rotate(45deg);
+        }
+
+        .mission-content {
+            padding: 2rem;
+            display: none;
+        }
+
+        .mission-card.active .mission-content {
+            display: block;
+        }
+
+        .mission-intro {
+            background: var(--pale-olive);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-olive);
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--text-medium);
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--cream);
+            border-radius: 12px;
+            border: 1px solid var(--pale-olive);
+        }
+
+        .content-section h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, var(--accent-gold) 0%, var(--accent-gold) 100%);
+            background-size: 100% 0.2em;
+            background-repeat: no-repeat;
+            background-position: 0 88%;
+            cursor: help;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight:hover {
+            background-size: 100% 100%;
+            color: var(--text-dark);
+        }
+
+        .vocab-word {
+            color: var(--primary-olive);
+            font-weight: 600;
+            cursor: help;
+            border-bottom: 2px dotted var(--primary-olive);
+            transition: all 0.3s ease;
+        }
+
+        .vocab-word:hover {
+            color: var(--dark-green);
+            border-bottom-style: solid;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: absolute;
+            background: var(--warm-white);
+            border: 1px solid var(--primary-olive);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: var(--shadow-medium);
+            z-index: 2000;
+            max-width: 350px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            display: none;
+        }
+
+        .tooltip strong {
+            color: var(--dark-green);
+        }
+
+        /* Test Section */
+        .test-section {
+            background: var(--pale-olive);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .test-container {
+            margin-top: 1rem;
+        }
+
+        .question {
+            background: var(--warm-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .option {
+            display: block;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--cream);
+        }
+
+        .option:hover {
+            border-color: var(--light-olive);
+            background: var(--pale-olive);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: #f0fff4;
+        }
+
+        .option.incorrect {
+            border-color: var(--error);
+            background: #fff5f5;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--pale-olive);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .text-input.correct {
+            border-color: var(--success);
+        }
+
+        .text-input.incorrect {
+            border-color: var(--error);
+        }
+
+        .btn-secondary {
+            background: var(--light-olive);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-olive);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .test-results {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-medium);
+            font-style: italic;
+        }
+
+        .loading::after {
+            content: '';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+
+        .error-message {
+            background: #fff5f5;
+            border: 1px solid var(--error);
+            color: var(--error);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .retry-button {
+            background: var(--error);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        /* Demo Tests */
+        .demo-test {
+            background: var(--warm-white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        /* Final Challenge */
+        .final-challenge {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-large);
+        }
+
+        .final-challenge h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .challenge-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .challenge-list {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .challenge-list ol {
+            padding-left: 1.5rem;
+        }
+
+        .challenge-list li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: var(--pale-olive);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+
+            .welcome-title {
+                font-size: 2rem;
+            }
+
+            .api-input-group {
+                flex-direction: column;
+            }
+
+            .api-input {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .main-content {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Deutsch B1 Meisterkurs</div>
+            <nav class="nav">
+                <a href="#welcome">Start</a>
+                <a href="#missions">Lektionen</a>
+                <a href="#challenge">Challenge</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="api-section">
+        <div class="api-content">
+            <h3>🔑 Gemini API Konfiguration</h3>
+            <p>Für KI-generierte Tests benötigen Sie einen Gemini API-Schlüssel von <a href="https://makersuite.google.com/app/apikey" target="_blank" style="color: var(--accent-gold);">Google AI Studio</a>.</p>
+            <div class="api-input-group">
+                <input type="password" id="apiKey" class="api-input" placeholder="Ihr Gemini API-Schlüssel">
+                <button onclick="saveApiKey()" class="btn-primary">Speichern & Testen</button>
+            </div>
+            <div id="apiStatus" class="api-status"></div>
+        </div>
+    </section>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <main class="main-content">
+        <section id="welcome" class="welcome-section">
+            <h1 class="welcome-title">Meistern Sie Deutsch B1</h1>
+            <p class="welcome-subtitle">
+                Ein vollständiger, interaktiver Kurs, der Sie mit bewährten Strategien und 
+                gezieltem Training zum B1-Experten macht.
+            </p>
+        </section>
+
+        <section id="missions" class="missions-grid">
+            <!-- Mission 1: Perfekt & Präteritum -->
+            <div class="mission-card" data-mission="mission1">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 1: Zeitreise-Meisterschaft - Perfekt vs. Präteritum</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Die deutsche Vergangenheit hat zwei Gesichter: das gesellige Perfekt für Gespräche und das elegante Präteritum für Erzählungen. Ihre Mission: Instinktiv das richtige Gesicht wählen.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Die Timing-Strategie</h3>
+                        <p><strong>Gespräch-Perfekt:</strong> 95% aller Alltagsgespräche verwenden das Perfekt. 
+                        "Ich <span class="highlight" data-info="PERFEKT: Hilfsverb 'habe' + Partizip II 'gegessen'. Standard für gesprochene Sprache.">habe gestern Pizza gegessen</span>."</p>
+                        
+                        <p><strong>Erzähl-Präteritum:</strong> Formelle Texte, Märchen, Nachrichten verwenden Präteritum. 
+                        "Es <span class="highlight" data-info="PRÄTERITUM: Einfache Vergangenheitsform, schafft narrative Distanz und Formalität.">war einmal</span> ein König..."</p>
+                        
+                        <p><strong>Champion-Verben:</strong> <span class="vocab-word" data-info="haben → hatte<br>sein → war<br>Diese Verben sind so häufig, dass sie auch in Gesprächen oft im Präteritum stehen.">haben, sein</span> und <span class="vocab-word" data-info="können → konnte<br>wollen → wollte<br>müssen → musste<br>Modalverben klingen im Präteritum natürlicher.">Modalverben</span> bevorzugen Präteritum.</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>📖 Meisterhafte Analyse</h3>
+                        <p><em>Dokumentarfilm:</em> "Einstein <span class="highlight" data-info="PRÄTERITUM: Biografische Berichterstattung verwendet formelles Präteritum.">war</span> ein Genie. Seine Theorien <span class="highlight" data-info="PRÄTERITUM: Historische Fakten in formellem Kontext.">revolutionierten</span> die Physik."</p>
+                        
+                        <p><em>Freundesgespräch:</em> "Gestern <span class="highlight" data-info="PERFEKT: Persönliche Erfahrung im Gespräch - typischer Perfekt-Fall.">bin ich zum Museum gegangen</span> und <span class="highlight" data-info="PERFEKT: Fortsetzung der persönlichen Erzählung.">habe Einstein-Ausstellung gesehen</span>!"</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="Verb: gebären<br>Präsens: wird geboren<br>Präteritum: wurde geboren<br>Perfekt: ist geboren worden">geboren werden</span> - to be born</li>
+                            <li><span class="vocab-word" data-info="Präsens: stirbt<br>Präteritum: starb<br>Perfekt: ist gestorben<br>Starkes Verb mit Vokalwechsel">sterben</span> - to die</li>
+                            <li><span class="vocab-word" data-info="der Physiker, -<br>Femininum: die Physikerin<br>Plural: die Physiker/innen">der Physiker</span> - physicist</li>
+                            <li><span class="vocab-word" data-info="Präsens: revolutioniert<br>Präteritum: revolutionierte<br>Perfekt: hat revolutioniert">revolutionieren</span> - to revolutionize</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission1')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission1')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer1" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission 2: Nebensätze -->
+            <div class="mission-card" data-mission="mission2">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 2: Satzbau-Architektur - Nebensätze meistern</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Nebensätze sind die Geheimwaffe für elegante, komplexe Kommunikation. Das Verb wandert ans Ende - ein einfaches Gesetz mit mächtiger Wirkung.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Die Verb-Teleportation</h3>
+                        <p>Konjunktionen wie <span class="vocab-word" data-info="weil - because<br>dass - that<br>wenn - if/when<br>obwohl - although">weil, dass, wenn, obwohl</span> sind Magier: Sie teleportieren das konjugierte Verb ans Satzende!</p>
+                        
+                        <p><strong>Hauptsatz:</strong> "Ich <span class="highlight" data-info="POSITION 2: Konjugiertes Verb steht an zweiter Position.">bleibe</span> zu Hause."</p>
+                        <p><strong>Nebensatz:</strong> "..., weil es <span class="highlight" data-info="SATZENDE: 'regnet' wandert ans Ende des Nebensatzes.">regnet</span>."</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>⚡ Profi-Trick: Nebensatz-Inversion</h3>
+                        <p>Beginnt Ihr Satz mit einem Nebensatz, startet der Hauptsatz <strong>sofort</strong> mit dem Verb:</p>
+                        <p>"<span class="highlight" data-info="NEBENSATZ ZUERST: Der gesamte Nebensatz nimmt Position 1 ein.">Weil es regnet</span>, <span class="highlight" data-info="INVERSION: Das Verb 'bleibe' rückt sofort auf Position 1 im Hauptsatz.">bleibe</span> ich zu Hause."</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="Konjunktion<br>Leitet Kausalsatz ein<br>Verb geht ans Ende">weil</span> - because</li>
+                            <li><span class="vocab-word" data-info="Konjunktion<br>Leitet Objektsatz ein<br>Verb geht ans Ende">dass</span> - that</li>
+                            <li><span class="vocab-word" data-info="Konjunktion<br>Temporal/konditional<br>Verb geht ans Ende">wenn</span> - if/when</li>
+                            <li><span class="vocab-word" data-info="Konjunktion<br>Konzessiv (Gegensatz)<br>Verb geht ans Ende">obwohl</span> - although</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission2')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission2')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer2" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission 3: Reflexive Verben -->
+            <div class="mission-card" data-mission="mission3">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 3: Spiegel-Meisterschaft - Reflexive Verben</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Reflexive Verben schauen in den Spiegel - die Handlung fällt auf das Subjekt zurück. Ihre Mission: Den Spiegel-Test meistern.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Der Spiegel-Test</h3>
+                        <p><strong>Frage:</strong> Wirkt die Handlung auf das Subjekt selbst zurück?</p>
+                        <p>✅ Ich wasche <span class="highlight" data-info="REFLEXIV: 'mich' zeigt, dass die Waschhandlung auf 'ich' selbst zurückwirkt.">mich</span>. (Reflexiv!)</p>
+                        <p>❌ Ich wasche <span class="highlight" data-info="NICHT REFLEXIV: 'das Auto' ist ein anderes Objekt, nicht das Subjekt selbst.">das Auto</span>. (Nicht reflexiv!)</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="sich freuen auf/über + Akk<br>Ich freue mich auf morgen<br>Perfekt: hat sich gefreut">sich freuen</span> - to be happy</li>
+                            <li><span class="vocab-word" data-info="sich ärgern über + Akk<br>Ich ärgere mich über den Lärm<br>Perfekt: hat sich geärgert">sich ärgern</span> - to get annoyed</li>
+                            <li><span class="vocab-word" data-info="sich interessieren für + Akk<br>Ich interessiere mich für Kunst<br>Perfekt: hat sich interessiert">sich interessieren</span> - to be interested</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission3')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission3')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer3" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission 4: Passiv -->
+            <div class="mission-card" data-mission="mission4">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 4: Perspektiv-Wechsel - Das Passiv meistern</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Manchmal ist unwichtig, WER handelt. Wichtig ist nur, WAS passiert. Das Passiv lenkt den Fokus auf die Handlung oder das Objekt.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Die Werden-Formel</h3>
+                        <p><strong>Passiv = werden + Partizip II</strong></p>
+                        <p>Aktiv: "Die Firma <span class="highlight" data-info="AKTIV: Fokus auf 'die Firma' als Handelnde.">produziert</span> Autos."</p>
+                        <p>Passiv: "Autos <span class="highlight" data-info="PASSIV: Fokus auf 'Autos' als Betroffene der Handlung.">werden produziert</span>."</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="Passiv: wird/wurde produziert<br>Präsens: produziert<br>Partizip II: produziert">produzieren</span> - to produce</li>
+                            <li><span class="vocab-word" data-info="Passiv: wird/wurde verkauft<br>Präsens: verkauft<br>Partizip II: verkauft">verkaufen</span> - to sell</li>
+                            <li><span class="vocab-word" data-info="die Glühbirne, -n<br>Plural: die Glühbirnen<br>LED ersetzt die traditionelle Glühbirne">die Glühbirne</span> - light bulb</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission4')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission4')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer4" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission 5: Komparativ & Superlativ -->
+            <div class="mission-card" data-mission="mission5">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 5: Vergleichs-Virtuose - Komparativ & Superlativ</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Vergleiche verleihen Ihrer Sprache Nuancen und Präzision. Meistern Sie die Steigerungstreppe: gut → besser → am besten.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Die Steigerungs-Treppe</h3>
+                        <p><strong>Stufe 1 - Komparativ:</strong> Adjektiv + <strong>-er als</strong></p>
+                        <p>"Berlin ist <span class="highlight" data-info="KOMPARATIV: 'groß' wird zu 'größer', verglichen mit 'als'.">größer als</span> München."</p>
+                        
+                        <p><strong>Stufe 2 - Superlativ:</strong> <strong>am</strong> + Adjektiv + <strong>-sten</strong> / <strong>der/die/das</strong> + Adjektiv + <strong>-ste</strong></p>
+                        <p>"Berlin ist <span class="highlight" data-info="SUPERLATIV: 'am größten' steht allein.">am größten</span>." / "Berlin ist <span class="highlight" data-info="SUPERLATIV: 'die größte' vor einem Nomen mit Deklination.">die größte Stadt</span>."</p>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="gut → besser → am besten/der beste<br>Komplett unregelmäßig">gut → besser → best-</span></li>
+                            <li><span class="vocab-word" data-info="Komparativ: schlimmer<br>Superlativ: am schlimmsten<br>Bedeutung: bad, terrible">schlimm</span> - bad/serious</li>
+                            <li><span class="vocab-word" data-info="Komparativ: günstiger<br>Superlativ: am günstigsten<br>Bedeutung: cheap, affordable">günstig</span> - cheap/favorable</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission5')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission5')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer5" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission 6: Konjunktiv II -->
+            <div class="mission-card" data-mission="mission6">
+                <div class="mission-header">
+                    <h2 class="mission-title">Mission 6: Höflichkeits-Diplomat - Konjunktiv II</h2>
+                    <span class="mission-toggle">+</span>
+                </div>
+                <div class="mission-content">
+                    <div class="mission-intro">
+                        Der Konjunktiv II öffnet Türen zur Höflichkeit, zu Träumen und hypothetischen Welten. Er macht Sie zum Diplomaten der deutschen Sprache.
+                    </div>
+
+                    <div class="content-section">
+                        <h3>🎯 Die Würde-Brücke + Champions</h3>
+                        <p><strong>Standard-Formel:</strong> würde + Infinitiv</p>
+                        <p>"Wenn ich Zeit hätte, <span class="highlight" data-info="KONJUNKTIV II: 'würde gehen' für die meisten Verben.">würde ich ins Kino gehen</span>."</p>
+                        
+                        <p><strong>Champion-Verben (eigene Formen):</strong></p>
+                        <ul>
+                            <li><span class="vocab-word" data-info="haben → hätte<br>Wenn ich Geld hätte...">haben → hätte</span></li>
+                            <li><span class="vocab-word" data-info="sein → wäre<br>Wenn ich reich wäre...">sein → wäre</span></li>
+                            <li><span class="vocab-word" data-info="können → könnte<br>Könnten Sie mir helfen?">können → könnte</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="content-section">
+                        <h3>💎 Vokabel-Schatzkammer</h3>
+                        <ul>
+                            <li><span class="vocab-word" data-info="talentiert sein<br>Synonym: begabt<br>Sie ist sehr talentiert">talentiert</span> - talented</li>
+                            <li><span class="vocab-word" data-info="die Speisekarte, -n<br>Synonym: die Menükarte<br>Plural: die Speisekarten">die Speisekarte</span> - menu</li>
+                            <li><span class="vocab-word" data-info="der Millionär, -e<br>Femininum: die Millionärin<br>reich sein">der Millionär</span> - millionaire</li>
+                        </ul>
+                    </div>
+
+                    <div class="test-section">
+                        <h3>🧪 Interaktiver Test</h3>
+                        <button onclick="generateTest('mission6')" class="btn-secondary">KI-Test generieren</button>
+                        <button onclick="showDemoTest('mission6')" class="btn-secondary">Demo-Test zeigen</button>
+                        <div id="testContainer6" class="test-container">
+                            <p>Verwenden Sie die KI-Generierung für unbegrenzte, einzigartige Tests oder probieren Sie den Demo-Test!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenge" class="final-challenge">
+            <h2>🏆 Ihre B1-Meisterprüfung</h2>
+            <div class="challenge-content">
+                <p>Herzlichen Glückwunsch! Sie haben alle Kernmissionen abgeschlossen. Jetzt folgt Ihre finale Challenge, die alle erlernten Fähigkeiten kombiniert.</p>
+                
+                <div class="challenge-list">
+                    <h3>📝 Ihre Abschluss-Mission: Die Journalistin</h3>
+                    <p>Stellen Sie sich eine erfolgreiche Journalistin vor und verwenden Sie dabei alle gelernten Strukturen:</p>
+                    <ol>
+                        <li><strong>Biografie (Präteritum):</strong> Fassen Sie ihren Werdegang in 2-3 Sätzen zusammen.</li>
+                        <li><strong>Begründung (Nebensatz):</strong> Erklären Sie mit einem "weil"-Satz, warum sie Journalistin wurde.</li>
+                        <li><strong>Gefühle (Reflexiv):</strong> Beschreiben Sie, wie sie sich bei ihrer Arbeit fühlt.</li>
+                        <li><strong>Vergleich (Komparativ/Superlativ):</strong> Vergleichen Sie sie mit anderen in ihrem Beruf.</li>
+                        <li><strong>Hypothese (Konjunktiv II):</strong> Formulieren Sie eine "Was wäre wenn"-Frage.</li>
+                        <li><strong>Anerkennung (Passiv):</strong> Beschreiben Sie ihre Erfolge im Passiv.</li>
+                    </ol>
+                </div>
+                
+                <p><strong>Wenn Sie diese Challenge meistern, sind Sie ein echter B1-Profi!</strong> Sie können komplexe Gedanken strukturiert und elegant ausdrücken - das ist wahre Sprachkompetenz.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Deutsch B1 Meisterkurs. Designed with ❤️ for passionate German learners.</p>
+    </footer>
+
+    <script>
+        let userApiKey = '';
+        const tooltip = document.getElementById('tooltip');
+
+        // Demo Tests Data
+        const demoTests = {
+            mission1: [
+                {
+                    question: "Welche Zeitform verwenden Sie normalerweise in einem Gespräch mit Freunden über vergangene Ereignisse?",
+                    type: "mc",
+                    options: ["Präteritum", "Perfekt", "Plusquamperfekt", "Futur"],
+                    correct: 1
+                },
+                {
+                    question: "Ergänzen Sie: 'Einstein _____ ein berühmter Physiker.' (Dokumentarfilm)",
+                    type: "text",
+                    correct: "war"
+                }
+            ],
+            mission2: [
+                {
+                    question: "Wo steht das konjugierte Verb in einem Nebensatz?",
+                    type: "mc",
+                    options: ["An Position 1", "An Position 2", "Am Ende", "Es gibt keine Regel"],
+                    correct: 2
+                },
+                {
+                    question: "Ergänzen Sie: 'Weil es regnet, _____ ich zu Hause.' (Verb an der richtigen Position)",
+                    type: "text",
+                    correct: "bleibe"
+                }
+            ],
+            mission3: [
+                {
+                    question: "Welches Pronomen brauchen Sie bei: 'Ich _____ mich über das Geschenk.'",
+                    type: "mc",
+                    options: ["freue", "freuen", "freutest", "freut"],
+                    correct: 0
+                },
+                {
+                    question: "Ergänzen Sie das Reflexivpronomen: 'Er interessiert _____ für Musik.'",
+                    type: "text",
+                    correct: "sich"
+                }
+            ],
+            mission4: [
+                {
+                    question: "Wie bildet man das Passiv?",
+                    type: "mc",
+                    options: ["haben + Partizip II", "werden + Partizip II", "sein + Partizip II", "würde + Infinitiv"],
+                    correct: 1
+                },
+                {
+                    question: "Wandeln Sie ins Passiv um: 'Man produziert Autos.' → 'Autos _____ produziert.'",
+                    type: "text",
+                    correct: "werden"
+                }
+            ],
+            mission5: [
+                {
+                    question: "Wie lautet der Komparativ von 'gut'?",
+                    type: "mc",
+                    options: ["guter", "besser", "am besten", "güter"],
+                    correct: 1
+                },
+                {
+                    question: "Ergänzen Sie: 'Berlin ist _____ als München.' (groß → Komparativ)",
+                    type: "text",
+                    correct: "größer"
+                }
+            ],
+            mission6: [
+                {
+                    question: "Wofür verwendet man den Konjunktiv II hauptsächlich?",
+                    type: "mc",
+                    options: ["Vergangene Tatsachen", "Höfliche Bitten und Wünsche", "Zukünftige Pläne", "Befehle"],
+                    correct: 1
+                },
+                {
+                    question: "Ergänzen Sie höflich: '_____ Sie mir bitte helfen?' (können im Konjunktiv II)",
+                    type: "text",
+                    correct: "Könnten"
+                }
+            ]
+        };
+
+        // API Key Management
+        function saveApiKey() {
+            const input = document.getElementById('apiKey');
+            const status = document.getElementById('apiStatus');
+            
+            if (input.value.trim()) {
+                userApiKey = input.value.trim();
+                localStorage.setItem('geminiApiKey', userApiKey);
+                
+                // Test the API key
+                testApiKey().then(valid => {
+                    if (valid) {
+                        status.innerHTML = '✅ Schlüssel erfolgreich gespeichert und getestet!';
+                        status.style.color = 'var(--accent-gold)';
+                    } else {
+                        status.innerHTML = '❌ Schlüssel ungültig. Bitte überprüfen Sie ihn.';
+                        status.style.color = 'var(--error)';
+                    }
+                });
+            } else {
+                status.textContent = '❌ Bitte geben Sie einen gültigen Schlüssel ein.';
+                status.style.color = 'var(--error)';
+            }
+        }
+
+        async function testApiKey() {
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${userApiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: "Test" }] }]
+                    })
+                });
+                return response.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        function loadApiKey() {
+            const saved = localStorage.getItem('geminiApiKey');
+            if (saved) {
+                userApiKey = saved;
+                document.getElementById('apiKey').value = saved;
+                document.getElementById('apiStatus').innerHTML = '✅ Gespeicherter Schlüssel geladen';
+                document.getElementById('apiStatus').style.color = 'var(--success)';
+            }
+        }
+
+        // Mission Toggle
+        function initMissions() {
+            document.querySelectorAll('.mission-card').forEach(card => {
+                const header = card.querySelector('.mission-header');
+                header.addEventListener('click', () => {
+                    card.classList.toggle('active');
+                });
+            });
+        }
+
+        // Tooltip System
+        function initTooltips() {
+            document.querySelectorAll('.vocab-word, .highlight').forEach(element => {
+                element.addEventListener('mouseenter', (e) => {
+                    const info = e.target.dataset.info;
+                    if (info) {
+                        tooltip.innerHTML = info.replace(/\n/g, '<br>');
+                        tooltip.style.display = 'block';
+                        positionTooltip(e);
+                    }
+                });
+
+                element.addEventListener('mousemove', positionTooltip);
+                
+                element.addEventListener('mouseleave', () => {
+                    tooltip.style.display = 'none';
+                });
+            });
+        }
+
+        function positionTooltip(e) {
+            const rect = tooltip.getBoundingClientRect();
+            let x = e.pageX + 15;
+            let y = e.pageY + 15;
+
+            if (x + rect.width > window.innerWidth) {
+                x = e.pageX - rect.width - 15;
+            }
+            if (y + rect.height > window.innerHeight + window.scrollY) {
+                y = e.pageY - rect.height - 15;
+            }
+
+            tooltip.style.left = x + 'px';
+            tooltip.style.top = y + 'px';
+        }
+
+        // Demo Test Display
+        function showDemoTest(missionId) {
+            const missionNumber = missionId.slice(-1);
+            const container = document.getElementById(`testContainer${missionNumber}`);
+            const testData = demoTests[missionId];
+            
+            let html = '<div class="demo-test"><h4>📚 Demo-Test</h4>';
+            
+            testData.forEach((q, index) => {
+                html += `<div class="question" data-index="${index}">
+                    <div class="question-text">${q.question}</div>`;
+
+                if (q.type === 'mc') {
+                    q.options.forEach((option, optIndex) => {
+                        html += `<label class="option" data-value="${optIndex}">
+                            <input type="radio" name="demo${missionNumber}_q${index}" value="${optIndex}">
+                            ${option}
+                        </label>`;
+                    });
+                    html += `<input type="hidden" class="correct-answer" value="${q.correct}">`;
+                } else {
+                    html += `<input type="text" class="text-input" data-question="${index}">
+                        <input type="hidden" class="correct-answer" value="${q.correct}">`;
+                }
+
+                html += '</div>';
+            });
+
+            html += '<button onclick="checkDemoAnswers(this)" class="btn-primary" style="margin-top: 1rem;">Antworten prüfen</button>';
+            html += '<div class="test-results"></div></div>';
+
+            container.innerHTML = html;
+        }
+
+        function checkDemoAnswers(button) {
+            checkAnswers(button);
+        }
+
+        // AI Test Generation with better error handling
+        async function generateTest(missionId) {
+            if (!userApiKey) {
+                alert('🔑 Bitte speichern Sie zuerst Ihren Gemini API-Schlüssel oben auf der Seite.');
+                return;
+            }
+
+            const missionNumber = missionId.slice(-1);
+            const container = document.getElementById(`testContainer${missionNumber}`);
+            const button = event.target;
+            
+            container.innerHTML = '<div class="loading">Generiere maßgeschneiderte Fragen</div>';
+            button.disabled = true;
+
+            // Get mission content for context
+            const missionCard = document.querySelector(`[data-mission="${missionId}"]`);
+            const content = missionCard.querySelector('.mission-content').textContent;
+
+            const prompt = `Du bist ein erfahrener Deutschlehrer für B1-Niveau. Erstelle einen Test mit genau 6 Fragen basierend auf dem folgenden Lerninhalt. 
+
+Verwende diese zwei Fragetypen:
+- Multiple Choice (4 Optionen, 1 richtige)
+- Textantwort (kurze, präzise Antwort)
+
+Formatiere jede Frage so:
+FRAGE: [Fragetext]
+TYP: [MC oder TEXT]
+Für MC: A) Option 1 B) Option 2 C) Option 3 D) Option 4 [RICHTIG: X]
+Für TEXT: [ANTWORT: korrekte Antwort]
+---
+
+LERNINHALT:
+${content.substring(0, 1000)}...
+
+Erstelle nur den Test, keine zusätzlichen Erklärungen.`;
+
+            const endpoints = [
+                'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+                'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
+            ];
+
+            let success = false;
+
+            for (const endpoint of endpoints) {
+                try {
+                    const response = await fetch(`${endpoint}?key=${userApiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: prompt }] }],
+                            generationConfig: {
+                                temperature: 0.7,
+                                maxOutputTokens: 1024
+                            }
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        const testContent = data.candidates[0].content.parts[0].text;
+                        renderTest(testContent, container);
+                        success = true;
+                        break;
+                    } else if (response.status === 503) {
+                        continue; // Try next endpoint
+                    } else {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                } catch (error) {
+                    console.log(`Endpoint failed: ${endpoint}`, error);
+                }
+            }
+
+            if (!success) {
+                container.innerHTML = `
+                    <div class="error-message">
+                        <h4>⚠️ KI-Service temporär nicht verfügbar</h4>
+                        <p>Der Gemini-Service ist überlastet. Probieren Sie:</p>
+                        <ul>
+                            <li>In ein paar Minuten erneut</li>
+                            <li>Den Demo-Test stattdessen</li>
+                            <li>Ihren API-Schlüssel zu überprüfen</li>
+                        </ul>
+                        <button onclick="generateTest('${missionId}')" class="retry-button">🔄 Erneut versuchen</button>
+                    </div>
+                `;
+            }
+
+            button.disabled = false;
+        }
+
+        function renderTest(content, container) {
+            const questions = content.split('---').filter(q => q.trim());
+            
+            let html = '<div class="test-questions">';
+            
+            questions.forEach((q, index) => {
+                const lines = q.trim().split('\n');
+                const questionText = lines.find(l => l.startsWith('FRAGE:'))?.replace('FRAGE:', '').trim();
+                const type = lines.find(l => l.startsWith('TYP:'))?.replace('TYP:', '').trim();
+                
+                if (!questionText || !type) return;
+
+                html += `<div class="question" data-index="${index}">
+                    <div class="question-text">${questionText}</div>`;
+
+                if (type === 'MC') {
+                    const rightAnswer = lines.find(l => l.includes('[RICHTIG:'))?.match(/\[RICHTIG: ([A-D])\]/)?.[1];
+                    const optionsLine = lines.find(l => /[A-D]\)/.test(l));
+                    
+                    if (optionsLine && rightAnswer) {
+                        const options = optionsLine.match(/[A-D]\)[^A-D]*/g);
+                        options?.forEach(opt => {
+                            const letter = opt.charAt(0);
+                            const text = opt.substring(2).trim();
+                            html += `<label class="option" data-value="${letter}">
+                                <input type="radio" name="q${index}" value="${letter}">
+                                ${text}
+                            </label>`;
+                        });
+                        html += `<input type="hidden" class="correct-answer" value="${rightAnswer}">`;
+                    }
+                } else if (type === 'TEXT') {
+                    const answer = lines.find(l => l.includes('[ANTWORT:'))?.match(/\[ANTWORT: (.+)\]/)?.[1];
+                    html += `<input type="text" class="text-input" data-question="${index}">
+                        <input type="hidden" class="correct-answer" value="${answer}">`;
+                }
+
+                html += '</div>';
+            });
+
+            html += '</div>';
+            html += '<button onclick="checkAnswers(this)" class="btn-primary" style="margin-top: 1rem;">Antworten prüfen</button>';
+            html += '<div class="test-results"></div>';
+
+            container.innerHTML = html;
+        }
+
+        function checkAnswers(button) {
+            const container = button.parentElement;
+            const questions = container.querySelectorAll('.question');
+            let correct = 0;
+            let total = questions.length;
+
+            questions.forEach((q, index) => {
+                const correctAnswer = q.querySelector('.correct-answer').value;
+                const textInput = q.querySelector('.text-input');
+                const radioInputs = q.querySelectorAll('input[type="radio"]');
+
+                // Reset styles
+                q.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+
+                if (textInput) {
+                    textInput.classList.remove('correct', 'incorrect');
+                    if (textInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
+                        textInput.classList.add('correct');
+                        correct++;
+                    } else {
+                        textInput.classList.add('incorrect');
+                    }
+                } else {
+                    const selected = q.querySelector('input[type="radio"]:checked');
+                    if (selected) {
+                        const selectedOption = selected.parentElement;
+                        if (selected.value === correctAnswer || selected.value == correctAnswer) {
+                            selectedOption.classList.add('correct');
+                            correct++;
+                        } else {
+                            selectedOption.classList.add('incorrect');
+                            // Show correct answer
+                            const correctOption = q.querySelector(`input[value="${correctAnswer}"]`)?.parentElement;
+                            if (correctOption) correctOption.classList.add('correct');
+                        }
+                    }
+                }
+            });
+
+            const resultsDiv = container.querySelector('.test-results');
+            const percentage = Math.round((correct / total) * 100);
+            let message = '';
+            
+            if (percentage >= 90) message = '🏆 Exzellent! Sie sind ein B1-Meister!';
+            else if (percentage >= 75) message = '🎉 Sehr gut! Sie sind auf dem richtigen Weg!';
+            else if (percentage >= 60) message = '👍 Gut gemacht! Noch etwas Übung und Sie schaffen es!';
+            else message = '💪 Nicht aufgeben! Wiederholen Sie das Material und versuchen es erneut!';
+
+            resultsDiv.innerHTML = `<strong>${correct}/${total} richtig (${percentage}%)</strong><br>${message}`;
+            resultsDiv.style.color = percentage >= 75 ? 'var(--success)' : 'var(--error)';
+        }
+
+        // Make functions global for onclick handlers
+        window.saveApiKey = saveApiKey;
+        window.generateTest = generateTest;
+        window.showDemoTest = showDemoTest;
+        window.checkAnswers = checkAnswers;
+        window.checkDemoAnswers = checkDemoAnswers;
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            loadApiKey();
+            initMissions();
+            initTooltips();
+        });
+    </script>
+</body>
+</html>
